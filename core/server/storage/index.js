@@ -13,10 +13,7 @@ function getStorage(storageChoice) {
 
     try {
         // TODO: determine if storage has all the necessary methods.
-        storage[storageChoice] = require('ghost-s3')({
-          errors: errors,
-          config: require('../config')().aws
-      });
+        storage[storageChoice] = require('./' + storageChoice);
     } catch (e) {
         try {
             storage[storageChoice] = require(storageChoice);
